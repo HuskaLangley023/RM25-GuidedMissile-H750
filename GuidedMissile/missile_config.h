@@ -16,12 +16,19 @@
 #define HEIGHT  120
 #define WIDTH  188
 
-#define DCMI_CAMERA
+// #define DCMI_CAMERA
 #define IMU
 #define USB_SHOW
 #define CV_FIND_CIRCLE
 #define FLIGHT_CONTROL
-#define SD
+//磁编码器
+#define ENCODER
+#ifdef ENCODER
+#define ENCODER_LR
+// #define ENCODER_UP
+#endif
+
+// #define SD
 #ifdef SD
 #define SD_LOG
 #define SD_PIC

@@ -24,6 +24,7 @@
 #include "servo.h"
 #include "imu.h"
 #include "ws2812.h"
+#include "as6500.h"
 
 uint8_t image_buf[HEIGHT][WIDTH];
 uint8_t image[HEIGHT][WIDTH];
@@ -44,8 +45,13 @@ void controlInit(void) {
 #ifdef IMU
     imuInit();
 #endif
+
 #ifdef FLIGHT_CONTROL
     flight_control.init();
+#endif
+
+#ifdef ENCODER
+    as6500init();
 #endif
 
 #ifdef SD
