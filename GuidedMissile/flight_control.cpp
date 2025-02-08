@@ -14,7 +14,10 @@
 #include "light_recognition.h"
 #include "imu.h"
 #include "BMI088driver.h"
+#include "as6500.h"
 
+extern Encoder encoder_l;
+extern Encoder encoder_r;
 
 PID tx_control_pid(0.2, 0, 0.2, 0, 45);
 PID fy_control_pid(20, 0, 0, 0, 45);
@@ -42,6 +45,13 @@ void FlightControl::init(void) {
 }
 
 void FlightControl::handle(void) {
+
+    //TODO 磁传感器实现飞控
+    encoder_l.asHandle();
+    encoder_r.asHandle();
+    //
+
+
     rudder_angle_.rudder2_angle = -10;
     rudder_angle_.rudder4_angle = 10;
 
